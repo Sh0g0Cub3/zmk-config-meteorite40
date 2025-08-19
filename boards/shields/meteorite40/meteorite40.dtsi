@@ -6,8 +6,8 @@
 #define DEFAULT_CPI 400        // トラックボールの感度
 #define ROTATION_ANGLE 30       // トラックボールのY軸を回転
 #define CLIPPER_THRESHOLD 30    // スクロール時に斜めの値をクリップ
-#define INVERT_X 1              // スクロールの反転
-#define INVERT_Y 0              // スクロールの反転
+#define INVERT_X 0              // スクロールの反転
+#define INVERT_Y 1              // スクロールの反転
 #define SCROLL_LAYER 2         // スクロールを有効にするレイヤー
 
 #define POLL_PERIOD_MS 30       // キースキャンのポーリング周期（ms）
