@@ -101,17 +101,17 @@
             bindings = <
 &kp LS(EXCL)   &at_mark      &kp LS(POUND)  &kp LS(DLLR)  &kp LS(PRCNT)  &kp LS(LPAR)            &kp LS(RPAR)             &kp BSLH      &kp LS(TILDE)  &kp GRAVE
 &kp LS(CARET)  &kp LS(AMPS)  &kp LS(STAR)   &kp EQUAL     &kp LS(UNDER)  &kp LBKT                &kp RBKT                 &kp LS(PIPE)  &none          &code_block
-&kp GRAVE      &kp SQT       &kp LS(DQT)    &kp LS(PLUS)  &kp MINUS      &kp LA(LG(LEFT_ARROW))  &kp LA(LG(RIGHT_ARROW))  &kp LS(LBRC)  &kp LS(RBRC)   &none        &none  &none
+&kp GRAVE      &kp SQT       &kp LS(DQT)    &kp LS(PLUS)  &kp MINUS      &kp LA(LG(LEFT_ARROW))  &kp LA(LG(RIGHT_ARROW))  &kp LS(LBRC)  &kp LS(RBRC)   &kp LESS_THAN  &kp GREATER_THAN  &none
 &trans         &trans        &trans         &trans        &trans         &trans                  &trans                   &trans
             >;
         };
 
         layer_7 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans         &trans         &trans         &trans             &trans         &trans             &trans  &trans     &kp LC(LG(P))
+&trans  &kp LC(LG(S))  &trans         &kp LC(LG(F))  &kp LC(LG(LS(B)))  &kp LEFT       &kp DOWN           &kp UP  &kp RIGHT  &trans
+&trans  &trans         &kp LC(LG(C))  &kp LC(LG(V))  &kp LC(LG(B))      &kp LG(SPACE)  &kp LS(LG(SPACE))  &trans  &trans     &trans         &trans  &kp BSPC
+&trans  &trans         &trans         &trans         &trans             &trans         &trans             &trans
             >;
         };
     };
