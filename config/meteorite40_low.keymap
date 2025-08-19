@@ -16,55 +16,21 @@
 };
 
 / {
-    combos {
-        compatible = "zmk,combos";
+    combos { compatible = "zmk,combos"; };
 
-        lang1 {
-            bindings = <&kp LANG1>;
-            key-positions = <12 13>; /* D + F */
-            layers = <0>;
+    macros {
+        at_mark: at_mark {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANGUAGE_2 &kp AT>;
+            label = "AT_MARK";
         };
 
-        lang2 {
-            bindings = <&kp LANG2>;
-            key-positions = <16 17>; /* J + K */
-            layers = <0>;
-        };
-
-        esc {
-            bindings = <&kp ESCAPE>;
-            key-positions = <20 21>; /* Z + X */
-            layers = <0>;
-        };
-
-        tab {
-            bindings = <&kp TAB>;
-            key-positions = <0 1>; /* Q + W */
-            layers = <0>;
-        };
-
-        home {
-            bindings = <&kp HOME>;
-            key-positions = <16 17>; /* J + K (on layer 2) */
-            layers = <2>;
-        };
-
-        end {
-            bindings = <&kp END>;
-            key-positions = <18 19>; /* L + - (on layer 2) */
-            layers = <2>;
-        };
-
-        ctrl_home {
-            bindings = <&kp LC(HOME)>;
-            key-positions = <16 18>; /* J + L (on layer 2) */
-            layers = <2>;
-        };
-
-        ctrl_end {
-            bindings = <&kp LC(END)>;
-            key-positions = <17 19>; /* K + - (on layer 2) */
-            layers = <2>;
+        code_block: code_block {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANGUAGE_2 &kp GRAVE &kp GRAVE &kp GRAVE>;
+            label = "CODE_BLOCK";
         };
     };
 
@@ -133,10 +99,10 @@
 
         layer_6 {
             bindings = <
-&kp LS(EXCL)   &kp LS(AT)    &kp LS(POUND)  &kp LS(DLLR)  &kp LS(PRCNT)  &kp LS(LPAR)  &kp LS(RPAR)  &kp BSLH      &kp LS(TILDE)  &kp GRAVE
-&kp LS(CARET)  &kp LS(AMPS)  &kp LS(STAR)   &kp EQUAL     &kp LS(UNDER)  &kp LBKT      &kp RBKT      &kp LS(PIPE)  &trans         &trans
-&kp GRAVE      &kp SQT       &kp LS(DQT)    &kp LS(PLUS)  &kp MINUS      &trans        &trans        &kp LS(LBRC)  &kp LS(RBRC)   &trans     &trans  &trans
-&trans         &trans        &trans         &trans        &trans         &trans        &trans        &trans
+&kp LS(EXCL)   &at_mark      &kp LS(POUND)  &kp LS(DLLR)  &kp LS(PRCNT)  &kp LS(LPAR)            &kp LS(RPAR)             &kp BSLH      &kp LS(TILDE)  &kp GRAVE
+&kp LS(CARET)  &kp LS(AMPS)  &kp LS(STAR)   &kp EQUAL     &kp LS(UNDER)  &kp LBKT                &kp RBKT                 &kp LS(PIPE)  &none          &code_block
+&kp GRAVE      &kp SQT       &kp LS(DQT)    &kp LS(PLUS)  &kp MINUS      &kp LA(LG(LEFT_ARROW))  &kp LA(LG(RIGHT_ARROW))  &kp LS(LBRC)  &kp LS(RBRC)   &none        &none  &none
+&trans         &trans        &trans         &trans        &trans         &trans                  &trans                   &trans
             >;
         };
 
