@@ -52,7 +52,7 @@
             bindings = <
 &trans  &trans         &trans         &trans         &trans             &trans         &trans             &trans         &trans     &kp LC(LG(P))
 &trans  &kp LC(LG(S))  &trans         &kp LC(LG(F))  &kp LC(LG(LS(B)))  &kp LEFT       &kp DOWN           &kp UP         &kp RIGHT  &trans
-&trans  &trans         &kp LC(LG(C))  &kp LC(LG(V))  &kp LC(LG(B))      &kp LG(SPACE)  &kp LS(LG(SPACE))  &kp BACKSPACE  &trans     &trans         &trans  &kp BSPC
+&trans  &trans         &kp LC(LG(C))  &kp LC(LG(V))  &kp LC(LG(B))      &kp LG(SPACE)  &kp LS(LG(SPACE))  &kp BACKSPACE  &trans     &trans         &trans  &none
 &trans  &trans         &trans         &trans         &trans             &trans         &trans             &trans
             >;
         };
@@ -77,10 +77,10 @@
 
         Display {
             bindings = <
-&trans  &trans             &kp LA(LC(C))      &kp LA(LC(E))      &kp LA(LC(M))      &kp LC(UP_ARROW)        &kp LC(LG(U))  &kp LC(LG(I))      &trans              &trans
-&trans  &kp LA(LC(T))      &kp LA(LC(S))      &kp LA(LC(B))      &kp LA(LC(F))      &kp LC(LG(LEFT_ARROW))  &kp LC(LG(J))  &kp LC(LG(K))      &kp LC(LG(RIGHT))   &trans
-&trans  &kp LS(LA(LC(F)))  &kp LS(LA(LC(S)))  &kp LS(LA(LC(P)))  &kp LS(LA(LC(D)))  &trans                  &trans         &kp LC(LG(COMMA))  &kp LC(LG(PERIOD))  &kp LC(LG(ENTER))  &trans  &trans
-&trans  &trans             &trans             &trans             &trans             &trans                  &trans         &trans
+&trans         &trans             &kp LA(LC(C))      &kp LA(LC(E))      &kp LA(LC(M))      &kp LC(UP_ARROW)        &kp LC(LG(U))  &kp LC(LG(I))      &trans              &trans
+&kp LA(LC(A))  &kp LA(LC(T))      &kp LA(LC(S))      &kp LA(LC(B))      &kp LA(LC(F))      &kp LC(LG(LEFT_ARROW))  &kp LC(LG(J))  &kp LC(LG(K))      &kp LC(LG(RIGHT))   &trans
+&kp LA(LC(G))  &kp LS(LA(LC(F)))  &kp LS(LA(LC(S)))  &kp LS(LA(LC(P)))  &kp LS(LA(LC(D)))  &trans                  &trans         &kp LC(LG(COMMA))  &kp LC(LG(PERIOD))  &kp LC(LG(ENTER))  &trans  &trans
+&trans         &trans             &trans             &trans             &trans             &trans                  &trans         &trans
             >;
         };
 
