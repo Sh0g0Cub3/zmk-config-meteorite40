@@ -50,9 +50,9 @@
 
         Arrow {
             bindings = <
-&trans  &trans         &trans         &trans         &trans             &trans         &trans             &trans  &trans     &kp LC(LG(P))
-&trans  &kp LC(LG(S))  &trans         &kp LC(LG(F))  &kp LC(LG(LS(B)))  &kp LEFT       &kp DOWN           &kp UP  &kp RIGHT  &trans
-&trans  &trans         &kp LC(LG(C))  &kp LC(LG(V))  &kp LC(LG(B))      &kp LG(SPACE)  &kp LS(LG(SPACE))  &trans  &trans     &trans         &trans  &kp BSPC
+&trans  &trans         &trans         &trans         &trans             &trans         &trans             &trans         &trans     &kp LC(LG(P))
+&trans  &kp LC(LG(S))  &trans         &kp LC(LG(F))  &kp LC(LG(LS(B)))  &kp LEFT       &kp DOWN           &kp UP         &kp RIGHT  &trans
+&trans  &trans         &kp LC(LG(C))  &kp LC(LG(V))  &kp LC(LG(B))      &kp LG(SPACE)  &kp LS(LG(SPACE))  &kp BACKSPACE  &trans     &trans         &trans  &kp BSPC
 &trans  &trans         &trans         &trans         &trans             &trans         &trans             &trans
             >;
         };
