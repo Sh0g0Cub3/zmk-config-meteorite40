@@ -48,19 +48,19 @@
         default_layer {
             display-name = "BASE";
             bindings = <
-&kp Q          &kp W         &kp E             &kp R                 &kp T        &kp Y     &kp U     &kp I  &kp O  &kp P
-&kp A          &kp S         &kp D             &kp F                 &kp G        &kp H     &kp J     &kp K  &kp L  &kp SEMICOLON
-&kp Z          &kp X         &kp C             &kp V                 &kp B        &mkp MB1  &mkp MB2  &kp N  &kp M  &kp COMMA      &kp DOT  &lt 5 SLASH
-&mt LCTRL ESC  &kp LEFT_ALT  &mt LEFT_GUI TAB  &mt LEFT_SHIFT SPACE  &lt 2 ENTER  &mo 1     &mo 3     &mo 4
+&kp Q      &kp W         &kp E                 &kp R      &kp T        &kp Y     &kp U     &kp I          &kp O  &kp P
+&kp A      &kp S         &kp D                 &kp F      &kp G        &kp H     &kp J     &kp K          &kp L  &kp SEMICOLON
+&kp Z      &kp X         &kp C                 &kp V      &kp B        &mkp MB1  &mkp MB2  &kp N          &kp M  &kp COMMA      &kp DOT  &lt 5 SLASH
+&lt 6 ESC  &kp LEFT_GUI  &mt LEFT_SHIFT SPACE  &lt 3 TAB  &lt 2 ENTER  &mo 1     &mo 4     &kp BACKSPACE
             >;
         };
 
         Arrow {
             bindings = <
-&kp TAB  &trans         &trans         &trans         &trans             &trans         &trans             &trans         &trans     &kp LC(LG(P))
-&trans   &kp LC(LG(S))  &trans         &kp LC(LG(F))  &kp LC(LG(LS(B)))  &kp LEFT       &kp DOWN           &kp UP         &kp RIGHT  &trans
-&trans   &trans         &kp LC(LG(C))  &kp LC(LG(V))  &kp LC(LG(B))      &kp LG(SPACE)  &kp LS(LG(SPACE))  &kp BACKSPACE  &trans     &trans         &trans  &none
-&trans   &trans         &trans         &trans         &trans             &trans         &trans             &trans
+&kp TAB  &trans         &trans         &trans         &trans             &trans             &trans         &trans         &trans     &kp LC(LG(P))
+&trans   &kp LC(LG(S))  &trans         &kp LC(LG(F))  &kp LC(LG(LS(B)))  &kp LEFT           &kp DOWN       &kp UP         &kp RIGHT  &trans
+&trans   &trans         &kp LC(LG(C))  &kp LC(LG(V))  &kp LC(LG(B))      &kp LG(LS(SPACE))  &kp LG(SPACE)  &kp BACKSPACE  &trans     &trans         &trans  &none
+&trans   &trans         &trans         &trans         &trans             &trans             &trans         &trans
             >;
         };
 
@@ -98,6 +98,15 @@
 &kp F5  &kp F6   &kp F7   &kp F8   &none   &bt BT_CLR    &bt BT_CLR_ALL  &none         &none         &none
 &kp F9  &kp F10  &kp F11  &kp F12  &none   &none         &bootloader     &none         &none         &none         &none  &none
 &trans  &trans   &trans   &trans   &trans  &trans        &trans          &trans
+            >;
+        };
+
+        Cntrol {
+            bindings = <
+&trans     &trans        &kp LC(E)  &kp LC(R)  &trans  &trans  &trans  &trans  &kp LC(O)  &kp LC(P)
+&kp LC(A)  &kp LC(S)     &kp LC(D)  &kp LC(F)  &trans  &trans  &trans  &trans  &trans     &trans
+&trans     &trans        &kp LC(C)  &kp LC(V)  &trans  &trans  &trans  &trans  &kp LC(M)  &trans     &trans  &trans
+&trans     &kp LEFT_ALT  &trans     &trans     &trans  &trans  &trans  &trans
             >;
         };
 
