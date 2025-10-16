@@ -48,19 +48,19 @@
         default_layer {
             display-name = "BASE";
             bindings = <
-&kp Q      &kp W         &kp E                 &kp R      &kp T        &kp Y     &kp U     &kp I          &kp O  &kp P
-&kp A      &kp S         &kp D                 &kp F      &kp G        &kp H     &kp J     &kp K          &kp L  &kp SEMICOLON
-&kp Z      &kp X         &kp C                 &kp V      &kp B        &mkp MB1  &mkp MB2  &kp N          &kp M  &kp COMMA      &kp DOT  &lt 5 SLASH
-&lt 6 ESC  &kp LEFT_GUI  &mt LEFT_SHIFT SPACE  &lt 3 TAB  &lt 2 ENTER  &mo 1     &mo 4     &kp BACKSPACE
+&kp Q      &kp W         &kp E                 &kp R      &kp T        &kp Y          &kp U     &kp I  &kp O  &kp P
+&kp A      &kp S         &kp D                 &kp F      &kp G        &kp H          &kp J     &kp K  &kp L  &kp SEMICOLON
+&kp Z      &kp X         &kp C                 &kp V      &kp B        &mkp MB1       &mkp MB2  &kp N  &kp M  &kp COMMA      &kp DOT  &lt 5 SLASH
+&lt 6 ESC  &kp LEFT_GUI  &mt LEFT_SHIFT SPACE  &lt 3 TAB  &lt 2 ENTER  &kp BACKSPACE  &mo 4     &mo 1
             >;
         };
 
         Arrow {
             bindings = <
-&kp TAB  &trans         &trans         &trans         &trans             &trans             &trans         &trans         &trans     &kp LC(LG(P))
-&trans   &kp LC(LG(S))  &trans         &kp LC(LG(F))  &kp LC(LG(LS(B)))  &kp LEFT           &kp DOWN       &kp UP         &kp RIGHT  &trans
-&trans   &trans         &kp LC(LG(C))  &kp LC(LG(V))  &kp LC(LG(B))      &kp LG(LS(SPACE))  &kp LG(SPACE)  &kp BACKSPACE  &trans     &trans         &trans  &none
-&trans   &trans         &trans         &trans         &trans             &trans             &trans         &trans
+&none   &trans         &trans         &trans         &trans             &trans             &trans         &trans  &trans        &kp LC(LG(P))
+&trans  &kp LC(LG(S))  &trans         &kp LC(LG(F))  &kp LC(LG(LS(B)))  &none              &none          &none   &kp UP_ARROW  &trans
+&trans  &trans         &kp LC(LG(C))  &kp LC(LG(V))  &kp LC(LG(B))      &kp LG(LS(SPACE))  &kp LG(SPACE)  &none   &trans        &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
+&trans  &trans         &trans         &trans         &trans             &trans             &trans         &trans
             >;
         };
 
