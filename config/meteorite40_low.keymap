@@ -6,7 +6,7 @@
 #include <behaviors/custom_config.dtsi>
 #include <dt-bindings/zmk/custom_config.h>
 
-&mt { 
+&mt {
     flavor = "tap-preferred"; // change hold to tap
     tapping-term-ms = <200>;
     quick-tap-ms = <150>; // change 200 to 150
@@ -18,56 +18,29 @@
     quick-tap-ms = <150>; // change 200 to 150
 };
 
-/ { 
+/ {
     combos {
         compatible = "zmk,combos";
 
-        lang1 {
-            bindings = <&kp LANG1>;
-            key-positions = <12 13>; /* D + F */
-            layers = <0>;
+        change_ime {
+            bindings = <&kp LC(SPACE)>;
+            key-positions = <16 17>;
+        };
+    };
+
+    macros {
+        at_mark: at_mark {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANGUAGE_2 &kp AT>;
+            label = "AT_MARK";
         };
 
-        lang2 {
-            bindings = <&kp LANG2>;
-            key-positions = <16 17>; /* J + K */
-            layers = <0>;
-        };
-
-        esc {
-            bindings = <&kp ESCAPE>;
-            key-positions = <20 21>; /* Z + X */
-            layers = <0>;
-        };
-
-        tab {
-            bindings = <&kp TAB>;
-            key-positions = <0 1>; /* Q + W */
-            layers = <0>;
-        };
-
-        home {
-            bindings = <&kp HOME>;
-            key-positions = <16 17>; /* J + K (on layer 2) */
-            layers = <2>;
-        };
-
-        end {
-            bindings = <&kp END>;
-            key-positions = <18 19>; /* L + - (on layer 2) */
-            layers = <2>;
-        };
-
-        ctrl_home {
-            bindings = <&kp LC(HOME)>;
-            key-positions = <16 18>; /* J + L (on layer 2) */
-            layers = <2>;
-        };
-
-        ctrl_end {
-            bindings = <&kp LC(END)>;
-            key-positions = <17 19>; /* K + - (on layer 2) */
-            layers = <2>;
+        code_block: code_block {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANGUAGE_2 &kp GRAVE &kp GRAVE &kp GRAVE>;
+            label = "CODE_BLOCK";
         };
     };
 
@@ -75,54 +48,108 @@
         compatible = "zmk,keymap";
         layout = &LOW_PROFILE_DEFAULT;
 
-        win_default_layer {
+        default_layer {
             display-name = "BASE";
             bindings = <
-                &kp Q        &kp W       &kp E        &kp R        &kp T                                 &kp Y        &kp U       &kp I       &kp O  &kp P
-                &mt LSHIFT A &kp S       &kp D        &kp F        &kp G                                 &kp H        &kp J       &kp K       &kp L  &kp MINUS
-                &kp Z        &kp X       &kp C        &kp V        &kp B        &mkp MB1     &mkp MB2    &kp N        &kp M       &kp COMMA   &kp DOT  &lt 4 SLASH
-                                    &kp LWIN  &mt LCTRL TAB  &mt LSHIFT SPACE  &lt 1 SPACE  &lt 2 ENTER  &lt 2 BSPC  &lt 3 DEL  &kp RALT
+&kp Q             &kp W         &kp E             &kp R             &kp T        &kp Y     &kp U     &kp I  &kp O  &kp P
+&kp A             &kp S         &kp D             &kp F             &kp G        &kp H     &kp J     &kp K  &kp L  &kp SEMICOLON
+&kp Z             &kp X         &kp C             &kp V             &kp B        &mkp MB1  &mkp MB2  &kp N  &kp M  &kp COMMA      &kp DOT  &lt 6 SLASH
+&kp LEFT_CONTROL  &kp LEFT_ALT  &mt LEFT_GUI TAB  &mt LSHIFT SPACE  &lt 4 ENTER  &mo 1     &mo 2     &mo 3
+            >;
+        };
+
+        layer_10 {
+            bindings = <
+&kp N1             &kp N2                    &kp N3             &kp N4                     &kp N5           &kp N6                &kp N7                 &kp N8    &kp N9     &kp N0
+&kp C_VOLUME_DOWN  &kp LC(LG(LEFT_BRACKET))  &kp LC(LG(SPACE))  &kp LC(LG(RIGHT_BRACKET))  &kp C_VOLUME_UP  &kp LEFT              &kp DOWN               &kp UP    &kp RIGHT  &trans
+&none              &kp LG(MINUS)             &kp LG(N0)         &kp LG(EQUAL)              &kp ESC          &kp LG(LEFT_BRACKET)  &kp LG(RIGHT_BRACKET)  &kp BSPC  &none      &trans  &trans  &trans
+&trans             &trans                    &trans             &trans                     &trans           &trans                &trans                 &trans
+            >;
+        };
+
+        Symbol {
+            bindings = <
+&kp LS(EXCL)   &at_mark      &kp LS(POUND)  &kp LS(DLLR)  &kp LS(PRCNT)  &kp LS(LPAR)            &kp LS(RPAR)             &kp BSLH      &kp LS(TILDE)  &kp GRAVE
+&kp LS(CARET)  &kp LS(AMPS)  &kp LS(STAR)   &kp EQUAL     &kp LS(UNDER)  &kp LBKT                &kp RBKT                 &kp LS(PIPE)  &none          &code_block
+&kp GRAVE      &kp SQT       &kp LS(DQT)    &kp LS(PLUS)  &kp MINUS      &kp LA(LG(LEFT_ARROW))  &kp LA(LG(RIGHT_ARROW))  &kp LS(LBRC)  &kp LS(RBRC)   &kp LESS_THAN  &kp GREATER_THAN  &kp LS(SLASH)
+&trans         &trans        &trans         &trans        &trans         &trans                  &trans                   &trans
+            >;
+        };
+
+        Display {
+            bindings = <
+&trans         &kp LA(LC(N))      &kp LA(LC(C))      &kp LA(LC(E))      &kp LA(LC(M))      &kp LC(UP_ARROW)        &kp LC(LG(U))  &kp LC(LG(I))      &trans              &trans
+&kp LA(LC(A))  &kp LA(LC(T))      &kp LA(LC(S))      &kp LA(LC(B))      &kp LA(LC(F))      &kp LC(LG(LEFT_ARROW))  &kp LC(LG(J))  &kp LC(LG(K))      &kp LC(LG(RIGHT))   &trans
+&kp LA(LC(G))  &kp LS(LA(LC(F)))  &kp LS(LA(LC(S)))  &kp LS(LA(LC(P)))  &kp LS(LA(LC(D)))  &trans                  &trans         &kp LC(LG(COMMA))  &kp LC(LG(PERIOD))  &kp LC(LG(ENTER))  &trans  &trans
+&trans         &trans             &trans             &trans             &trans             &trans                  &trans         &trans
+            >;
+        };
+
+        Arrow {
+            bindings = <
+&none   &trans         &trans         &trans         &trans             &trans             &trans         &trans  &trans        &kp LC(LG(P))
+&trans  &kp LC(LG(S))  &trans         &kp LC(LG(F))  &kp LC(LG(LS(B)))  &none              &none          &none   &kp UP_ARROW  &trans
+&trans  &trans         &kp LC(LG(C))  &kp LC(LG(V))  &kp LC(LG(B))      &kp LG(LS(SPACE))  &kp LG(SPACE)  &none   &trans        &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
+&trans  &trans         &trans         &trans         &trans             &trans             &trans         &trans
+            >;
+        };
+
+        Num {
+            bindings = <
+&kp N1             &kp N2                    &kp N3             &kp N4                     &kp N5           &kp N6                &kp N7                 &kp N8            &kp N9             &kp N0
+&kp C_VOLUME_DOWN  &kp LC(LG(LEFT_BRACKET))  &kp LC(LG(SPACE))  &kp LC(LG(RIGHT_BRACKET))  &kp C_VOLUME_UP  &kp LS(LPAR)          &kp LS(RPAR)           &kp MINUS         &kp PLUS           &kp ASTERISK
+&trans             &trans                    &kp LG(MINUS)      &kp LG(NUMBER_0)           &kp LG(EQUAL)    &kp LG(LEFT_BRACKET)  &kp LG(RIGHT_BRACKET)  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp COMMA     &kp DOT  &kp FSLH
+&trans             &trans                    &trans             &trans                     &trans           &trans                &trans                 &trans
+            >;
+        };
+
+        Bluetooth {
+            display-name = "SETTING";
+            bindings = <
+&kp F1  &kp F2   &kp F3   &kp F4   &none   &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+&kp F5  &kp F6   &kp F7   &kp F8   &none   &bt BT_CLR    &bt BT_CLR_ALL  &none         &none         &none
+&kp F9  &kp F10  &kp F11  &kp F12  &none   &none         &bootloader     &none         &none         &none         &none  &none
+&trans  &trans   &trans   &trans   &trans  &trans        &trans          &trans
+            >;
+        };
+
+        Cntrol {
+            bindings = <
+&trans     &trans        &kp LC(E)  &kp LC(R)  &trans  &trans  &trans  &trans  &kp LC(O)  &kp LC(P)
+&kp LC(A)  &kp LC(S)     &kp LC(D)  &kp LC(F)  &trans  &trans  &trans  &trans  &trans     &trans
+&trans     &trans        &kp LC(C)  &kp LC(V)  &trans  &trans  &trans  &trans  &kp LC(M)  &trans     &trans  &trans
+&trans     &kp LEFT_ALT  &trans     &trans     &trans  &trans  &trans  &trans
             >;
         };
 
         layer_1 {
             display-name = "SYMBOLS";
             bindings = <
-                &kp EXCL   &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                       &none      &kp LPAR   &kp RPAR   &kp LBKT   &kp RBKT
-                &kp CARET  &kp AMPS  &kp STAR  &kp BSLH  &kp PIPE                        &kp SEMI   &kp COLON  &kp SQT    &kp DQT    &kp EQUAL
-                &none      &none     &none     &none     &none      &mkp MB4  &mkp MB5   &kp GRAVE  &kp TILDE  &kp LBRC   &kp RBRC   &kp PLUS
-                                     &trans     &trans    &trans    &trans    &trans     &kp DEL    &trans     &trans
+&kp EXCL   &kp AT    &kp HASH  &kp DLLR  &kp PRCNT  &none     &kp LPAR   &kp RPAR   &kp LBKT   &kp RBKT
+&kp CARET  &kp AMPS  &kp STAR  &kp BSLH  &kp PIPE   &kp SEMI  &kp COLON  &kp SQT    &kp DQT    &kp EQUAL
+&none      &none     &none     &none     &none      &mkp MB4  &mkp MB5   &kp GRAVE  &kp TILDE  &kp LBRC   &kp RBRC  &kp PLUS
+&trans     &trans    &trans    &trans    &trans     &kp DEL   &trans     &trans
             >;
         };
 
         layer_2 {
             display-name = "NUM / ARROW";
             bindings = <
-                &kp ASTRK        &kp N7     &kp N8     &kp N9     &kp PLUS                        &kp LG(LS(S)) &kp LC(MINUS) &kp LC(EQUAL) &kp C_VOL_DN &kp C_VOL_UP
-                &kp SLASH        &kp N4     &kp N5     &kp N6     &kp MINUS                       &none         &kp LEFT      &kp UP        &kp DOWN     &kp RIGHT
-                &kp N0           &kp N1     &kp N2     &kp N3     &kp DOT   &mkp MB4   &mkp MB5   &none         &kp LG(LEFT)  &kp LG(UP)    &kp LG(DOWN) &kp LG(RIGHT)
-                                        &trans           &trans     &trans     &trans    &trans        &trans  &trans    &trans
+&kp ASTRK  &kp N7  &kp N8  &kp N9  &kp PLUS   &kp LG(LS(S))  &kp LC(MINUS)  &kp LC(EQUAL)  &kp C_VOL_DN  &kp C_VOL_UP
+&kp SLASH  &kp N4  &kp N5  &kp N6  &kp MINUS  &none          &kp LEFT       &kp UP         &kp DOWN      &kp RIGHT
+&kp N0     &kp N1  &kp N2  &kp N3  &kp DOT    &mkp MB4       &mkp MB5       &none          &kp LG(LEFT)  &kp LG(UP)    &kp LG(DOWN)  &kp LG(RIGHT)
+&trans     &trans  &trans  &trans  &trans     &trans         &trans         &trans
             >;
         };
 
         layer_3 {
             display-name = "FUNCTION";
             bindings = <
-                &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10
-                &none   &none   &none   &none   &none                   &none   &none   &none   &none   &none
-                &none   &none   &none   &none   &none   &none   &none   &none   &none   &none    &none  &none
-                                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10
+&none   &none   &none   &none   &none   &none   &none   &none   &none   &none
+&none   &none   &none   &none   &none   &none   &none   &none   &none   &none    &none  &none
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
-        };
-
-        layer_4 {
-			display-name = "SETTING";
-			bindings = <
-				&cust_cfg CCFG_CPI_DN  &cust_cfg CCFG_CPI_UP  &cust_cfg CCFG_ROT_DN   &cust_cfg CCFG_ROT_UP   &cust_cfg CCFG_SCALE_TOG                  &bt BT_SEL 0   &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-				&cust_cfg CCFG_SDIV_DN &cust_cfg CCFG_SDIV_UP &cust_cfg CCFG_SCRH_TOG &cust_cfg CCFG_SCRV_TOG &none                                     &bt BT_CLR     &bt BT_CLR_ALL  &none         &none         &none
-				&cust_cfg CCFG_SAVE    &cust_cfg CCFG_RESET   &none                   &none                   &none                    &none &none      &bootloader    &none           &none         &none         &none
-												                                                 &trans       &trans  &trans  &trans  &trans  &trans    &trans        &trans
-			>;
         };
     };
 };
